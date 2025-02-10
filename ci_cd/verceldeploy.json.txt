@@ -1,0 +1,42 @@
+{
+  "backend": {
+    "vercel.json": {
+      "version": 2,
+      "builds": [
+        { "src": "index.js", "use": "@vercel/node" }
+      ],
+      "routes": [
+        { "src": "/(.*)", "dest": "/index.js" }
+      ]
+    },
+    "package.json": {
+      "scripts": {
+        "start": "node index.js"
+      },
+      "dependencies": {
+        "express": "latest"
+      }
+    }
+  },
+  "frontend": {
+    "vercel.json": {
+      "version": 2,
+      "builds": [
+        { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+      ],
+      "routes": [
+        { "src": "/(.*)", "dest": "/index.html" }
+      ]
+    },
+    "package.json": {
+      "scripts": {
+        "build": "react-scripts build"
+      },
+      "dependencies": {
+        "react": "latest",
+        "react-dom": "latest",
+        "react-scripts": "latest"
+      }
+    }
+  }
+}
