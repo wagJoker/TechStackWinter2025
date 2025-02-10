@@ -1,6 +1,11 @@
 
 # Tech Stack Winter 2025
 # Art Gallery Management System
+
+### Project Tehnology ![ProjectTehnology](./images/tehno.jpeg)
+
+
+
 ## Project Overview
 
 This project aims to develop a gallery management application with both frontend and backend components. The goal is to provide a seamless interface for managing art pieces, including viewing, adding, and deleting artwork entries.
