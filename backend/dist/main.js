@@ -7,6 +7,7 @@ const app_module_1 = require("./app.module");
 const common_1 = require("@nestjs/common");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const PORT = process.env.PORT || 5000;
     app.enableCors(); // Enable CORS for the frontend
     app.useGlobalPipes(new common_1.ValidationPipe());
     const config = new swagger_1.DocumentBuilder()
@@ -18,5 +19,6 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api', app, document);
     await app.listen(3000);
+    console.log(`🚀 Server is running on: http://localhost:${PORT}`);
 }
 bootstrap();

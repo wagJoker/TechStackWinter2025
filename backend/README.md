@@ -25,7 +25,7 @@ The Art Gallery API is a RESTful API built with NestJS that allows users to mana
    ```
 3. Install the dependencies:
    ```
-   npm install
+   npm install --legacy-peer-deps
    ```
 4. Run the application:
    ```

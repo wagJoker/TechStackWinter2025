@@ -15,6 +15,9 @@ const config_1 = require("@nestjs/config");
 const prisma_module_1 = require("./prisma/prisma.module");
 const artworks_module_1 = require("./artworks/artworks.module");
 const websockets_module_1 = require("./websockets/websockets.module");
+const serve_static_1 = require("@nestjs/serve-static");
+const path_1 = require("path");
+const upload_controller_1 = require("./upload/upload.controller");
 const configuration_1 = __importDefault(require("./config/configuration"));
 let AppModule = class AppModule {
 };
@@ -29,6 +32,12 @@ exports.AppModule = AppModule = __decorate([
             prisma_module_1.PrismaModule,
             artworks_module_1.ArtworksModule,
             websockets_module_1.WebsocketsModule,
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '..', 'uploads'),
+                serveRoot: '/uploads',
+            }),
         ],
+        controllers: [upload_controller_1.UploadController],
+        providers: [],
     })
 ], AppModule);
